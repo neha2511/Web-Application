@@ -1,0 +1,89 @@
+﻿@model WebApplication2.Models.Dashboard
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div id="pad" class="row">
+        <div class="col-md-1">
+            <img src="~/Content/images/Studyplan.png" width="350" height="150" />
+        </div>
+        <div class="col-md-6 col-md-offset-2" style="color :forestgreen">
+
+            <div class="form-horizontal">
+                <h2>Dashboard</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Course", new List<SelectListItem>
+            {
+            new SelectListItem { Text="Computer Science", Value="1"},
+            new SelectListItem { Text="Information Systems", Value="2"},
+            new SelectListItem { Text="Computer Engineering", Value="3"},
+            new SelectListItem { Text="Construction Management", Value="4"},
+            new SelectListItem { Text="Electrical Engineering", Value="5"},
+
+            }, "Select Course")
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Concentration, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Concentration, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Concentration, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Semester, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2"  style="color :black">
+                        @Html.RadioButton("Semester", "Fall")  Fall
+                    </div>
+                    <div class="col-md-2"  style="color :black">
+                        @Html.RadioButton("Semester", "Spring") Spring
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NumberofSemesters, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2"  style="color :black">
+                        @Html.RadioButton("NumOfSemester", "3")  3
+                    </div>
+
+                    <div class="col-md-2"  style="color :black">
+                        @Html.RadioButton("NumOfSemester", "4") 4
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Elective, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Elective, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Elective, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-2">
+                        @Html.ActionLink("Cancel", "MyHome", "Home", null, new { @class = "btn btn-default" })
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="reset" value="Reset" class="btn btn-default" onclick="onreset" />
+                    </div>
+
+                    <div class="col-md-2">
+                        @Html.ActionLink("Submit", "Details", "StudyPlan", null, new { @class = "btn btn-default" })
+                        @*<input type="submit" value="Submit" class="btn btn-default"  />*@
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+            }
+
+       

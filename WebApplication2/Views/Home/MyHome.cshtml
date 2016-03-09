@@ -1,0 +1,16 @@
+﻿@using WebApplication2.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="design" class="row"  style="color :forestgreen">
+    <div class="col-md-1 col-md-offset-2"><img src="~/Content/images/Studyplan.png" /></div>
+    <div class="col-md-5 col-md-offset-1"><h1>Welcome to Study Plan guide !</h1></div>
+
+    <div id="pad" class="row">
+        <div class="col-md-offset-5">
+            <p><h3>@Html.ActionLink("Click here to get started", "Create", "Dashboard")</h3></p>
+        </div>
+    </div>
+</div>
+
